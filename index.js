@@ -18,8 +18,8 @@ class Customer {
   }
 
   meals(){
-    return store.meals.filter((meal) => {
-      return customer.meals()
+    return this.deliveries().map((delivery) => {
+      return delivery.meal()
     })
   }
 

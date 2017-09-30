@@ -17,11 +17,7 @@ class Customer {
     })
   }
 
-  meals(){
-    return this.deliveries().map((delivery) => {
-      return delivery.meal()
-    })
-  }
+v
 
   totalSpent(){
 
@@ -56,9 +52,9 @@ class Meal {
     })
   }
 
-  customer(){
-    return store.customers.filter((customer) => {
-      return customer.mealId == this.id
+  customers(){
+    return this.deliveries().map((delivery) => {
+      return delivery.customer()
     })
   }
 }

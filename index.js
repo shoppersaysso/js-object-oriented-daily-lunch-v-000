@@ -74,7 +74,6 @@ class Employer {
     return uniqueMeals;
   }
 
-
 }
 
 let mealId = 0

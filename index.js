@@ -68,7 +68,7 @@ class Employer {
 
   meals(){
     let allMeals = this.deliveries().map((delivery)=> {
-      return delivery.meals()
+      return delivery.meal()
     })
     let uniqueMeals = [...new Set(allMeals)]
     return uniqueMeals;

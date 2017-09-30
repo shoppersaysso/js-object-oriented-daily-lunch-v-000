@@ -63,6 +63,10 @@ class Meal {
       return delivery.customer()
     })
   }
+
+  byPrice(){
+    
+  }
 }
 
 let deliveryId = 0

@@ -52,11 +52,11 @@ class Meal {
     })
   }
 
-  // customers(){
-  //   return this.deliveries().map((delivery) => {
-  //     return delivery.customer()
-  //   })
-  // }
+  customers(){
+    return this.deliveries().map((delivery) => {
+      return delivery.customer()
+    })
+  }
 }
 
 let deliveryId = 0

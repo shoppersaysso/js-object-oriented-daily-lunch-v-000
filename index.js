@@ -64,10 +64,8 @@ class Meal {
     })
   }
 
-  byPrice(meals){
-    this.meals().map((meal) => {
-      return meal.price.total()
-    })
+  static byPrice(){
+    return store.meals.sort((meal) => { return meal.price });
   }
 }
 

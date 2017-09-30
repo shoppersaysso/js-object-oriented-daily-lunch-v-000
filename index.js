@@ -12,13 +12,13 @@ class Customer {
   }
 
   deliveries(){
-    return store.deliveries.filter((delivery) => {
+    return store.deliveries.filter((delivery)=> {
       return delivery.customerId == this.id
     })
   }
 
   meals(){
-    return this.deliveries().map((delivery) => {
+    return this.deliveries().map((delivery)=> {
       return delivery.meal()
     })
   }

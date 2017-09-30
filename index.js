@@ -19,7 +19,7 @@ class Customer {
 
   meals(){
     return store.meals.filter((meal) => {
-      return delivery.meals()
+      return customer.meals()
     })
   }
 

@@ -64,8 +64,10 @@ class Meal {
     })
   }
 
-  byPrice(){
-    
+  byPrice(meals){
+    this.meals().map((meal) => {
+      return meal.price.total()
+    })
   }
 }
 

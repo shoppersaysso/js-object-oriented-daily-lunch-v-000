@@ -3,7 +3,7 @@ const expect = chai.expect;
 describe('deliveries', function() {
   describe('creating a new delivery', function() {
     describe('store', function() {
-      it('can store deliveries', function() {
+      it('can store drivers', function() {
         expect(store.deliveries).to.be.instanceof(Array)
       })
     })
@@ -72,18 +72,14 @@ describe('meals', function() {
     describe('byPrice', function(){
       let steak;
       let pasta;
-      let salad;
       beforeEach(function(){
         store.meals = []
         pasta = new Meal('pasta', 7)
         steak = new Meal('steak', 10)
-        salad = new Meal('salad', 5)
       })
 
       it('orders all of the meals by price', function(){
         expect(Meal.byPrice()[0]).to.equal(steak)
-        expect(Meal.byPrice()[1]).to.equal(pasta)
-        expect(Meal.byPrice()[2]).to.equal(salad)
       })
     })
   })
@@ -131,7 +127,6 @@ describe('customers', function() {
         expect(store.customers).to.be.instanceof(Array)
       })
     })
-
 
     it('can create a Customer with a name', function() {
       let customer = new Customer("Sam")
@@ -240,60 +235,47 @@ describe('relating a delivery to a meal and a customer', function() {
   })
 })
 
-describe('employee stats', function() {
+describe('employers', function(){
+  let chicken;
+  let employer;
+  let customer;
+  let firstDelivery;
+  let secondCustomer;
+  let secondDelivery;
 
+  beforeEach(function() {
 
+    employer = new Employer("Initech")
+    customer = new Customer("Fred", employer)
+    chicken = new Meal("Chicken Parm")
+    firstDelivery = new Delivery(chicken, customer)
+    secondCustomer = new Customer("Susan", employer)
+    secondDelivery = new Delivery(chicken, secondCustomer)
 
-  describe('employers', function(){
-    let chicken;
-    let employer;
-    let customer;
-    let firstDelivery;
-    let secondCustomer;
-    let secondDelivery;
-    let thirdDelivery;
-    let thirdCustomer;
-    let steak;
+  });
 
-    beforeEach(function() {
+  afterEach(function(){
+    store.meals = []
+    store.customers = []
+    store.deliveries = []
+    store.employers = []
+  })
 
-      employer = new Employer("Initech")
-      otherEmployer = new Employer("Chachees")
-      customer = new Customer("Fred", employer)
-      chicken = new Meal("Chicken Parm")
-      steak = new Meal("Steak")
-      firstDelivery = new Delivery(chicken, customer)
-      secondCustomer = new Customer("Susan", employer)
-      thirdCustomer = new Customer("Sally", otherEmployer)
-      secondDelivery = new Delivery(chicken, secondCustomer)
-      thirdDelivery = new Delivery(chicken, thirdCustomer)
-    });
+  it('has employees', function() {
+    expect(employer.employees()).to.include(customer)
+    expect(employer.employees()).to.include(secondCustomer)
+  })
 
-    afterEach(function(){
-      store.meals = []
-      store.customers = []
-      store.deliveries = []
-      store.employers = []
-    })
+  it('has a deliveries', function() {
+    expect(employer.deliveries()).to.include(firstDelivery)
+  })
 
-    it('has employees', function() {
-      expect(employer.employees()).to.include(customer)
-      expect(employer.employees()).to.include(secondCustomer)
-      expect(employer.employees()).to.not.include(thirdCustomer)
-    })
+  it('has meals', function() {
+    expect(employer.meals()).to.include(chicken)
+  })
 
-    it('has a deliveries', function() {
-      expect(employer.deliveries()).to.include(firstDelivery)
-      expect(employer.deliveries()).to.not.include(thirdDelivery)
-    })
-
-    it('has meals', function() {
-      expect(employer.meals()).to.include(chicken)
-    })
-
-    it('does not repeat the same meal twice', function() {
-      expect(employer.meals().length).to.equal(1)
-    })
+  it('does not repeat the same meal twice', function() {
+    expect(employer.meals().length).to.equal(1)
   })
 })
 

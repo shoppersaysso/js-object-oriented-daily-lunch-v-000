@@ -57,12 +57,13 @@ class Employer {
       return customer.employerId == this.id
     })
   }
-  
+
   deliveries(){
     let allDeliveries = this.employees().map((employee)=> {
       return employee.deliveries()
     })
-    let 
+    let merged = [].concat.apply([], allDeliveries);
+    return merged
   }
 
 

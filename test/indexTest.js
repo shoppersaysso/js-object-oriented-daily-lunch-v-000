@@ -240,15 +240,7 @@ describe('relating a delivery to a meal and a customer', function() {
   })
 })
 
-describe('relating a driver to a trip and a passenger', function() {
-  let driver;
-  let passenger;
-  let firstTrip;
-  let susan;
-  let secondTrip;
-
-
-  describe('employers', function(){
+describe('employers', function(){
     let chicken;
     let employer;
     let customer;

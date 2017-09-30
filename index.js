@@ -25,7 +25,7 @@ class Customer {
 
   totalSpent(){
     return this.deliveries().map((delivery) =>{
-      return
+      return meals.price.total
     })
   }
 }

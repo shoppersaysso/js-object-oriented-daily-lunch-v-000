@@ -37,6 +37,15 @@ class Employer {
 
     store.employers.push(this)
   }
+
+  mealTotals(){
+    let allMeals = this.deliveries().map((delivery) => {
+      return delivery.meal()
+    })
+  }
+
+
+
 }
 
 let mealId = 0

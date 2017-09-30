@@ -17,6 +17,12 @@ class Customer {
     })
   }
 
+  meals(){
+    return this.deliveries().map((delivery) => {
+      return delivery.meal()
+    })
+  }
+
   totalSpent(){
 
   }
@@ -71,7 +77,7 @@ class Delivery {
   meal(){
     return store.meals.find((meal) => { return meal.id === this.mealId })
   }
-  
+
   customer(){
     return store.customers.find((customer) => { return customer.id === this.customerId })
   }

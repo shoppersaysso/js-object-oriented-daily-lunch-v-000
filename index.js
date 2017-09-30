@@ -57,6 +57,9 @@ class Employer {
       return customer.employerId == this.id
     })
   }
+  
+  deliveries(){}
+
 
 
 

@@ -39,17 +39,14 @@ class Employer {
   }
 
   mealTotals(){
-    let allMeals = this.deliveries().map((delivery) => {
-      return delivery.meal()
-    })
-    let summaryObject = {}
-    allMeals.forEach(function(meal){
-      summaryObject[meal.id] = 0
-    })
-    allMeals.foreEach(function(meal) {
-      summaryObject[meal.id] += 1
-    })
-    return summmaryObject;
+    let mealsTotals = {}
+    let keys = this.meals().map( meal =>  meal.id)
+    let mealsId = this.deliveries().map( delivery => delivery.mealId )
+    for (let i = 0; i < keys.length; i++){
+      mealsTotals[keys[i]] = mealsId.filter( mealId => { return mealId === keys[i] }).length
+    }
+
+    return mealsTotals
   }
 
   employees(){

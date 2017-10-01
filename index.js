@@ -24,8 +24,8 @@ class Customer {
   }
 
   totalSpent(){
-    return this.meals().reduce(function(sum, meal)  { return sum + meal.price }, 0)
-  }
+	    return this.meals().reduce(function(sum, meal) { return sum + meal.price }, 0)
+	}
 }
 
 let employerId = 0
